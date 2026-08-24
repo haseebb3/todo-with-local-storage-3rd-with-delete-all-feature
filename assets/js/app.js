@@ -141,7 +141,8 @@ function deleteAllHandler(){
   if(isConfirm){
     todosArr.splice(0);
   saveToLocalStorage();
-  todoList.remove();
+  // todoList.remove(); // old wrong method it was removing directly the ul node from dom
+  todoList.replaceChildren(); // it will remove only children of ul
     Swal.fire({
       text : `All todos deleted successfully.`,
       icon : "success",
